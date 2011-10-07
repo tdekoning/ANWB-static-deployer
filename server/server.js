@@ -4,7 +4,7 @@ var file = require('./fileRequest.js');
 
 http.createServer( function ( req, res ) {
 
-	if ( false ) {
+	if ( req.url.substring(1, 4) == 'api' ) {
 		// Als request begint met "api", moet een json object terug worden gegeven.
 		api.performRequest( req, res );
 	} else {
