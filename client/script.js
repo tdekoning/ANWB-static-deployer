@@ -16,13 +16,13 @@
 	});
 
 	$.getJSON( config.apiUrl + '?action=getTags', function( data ) {
-		var branches = [];
+		var tags = [];
 
 		$.each( data, function( key, value ) {
-			branches.push('<li>' + value + '</li>');
+			tags.push('<li>' + value + '</li>');
 		});
 
-		$('#tagsTest').append('<ul>' + branches.join('') + '</ul>');
+		$('#tagsTest').append('<ul>' + tags.join('') + '</ul>');
 	});
 
 })( jQuery );
