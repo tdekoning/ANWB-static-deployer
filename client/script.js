@@ -4,7 +4,7 @@
 		apiUrl : 'api/'
 	}
 
-	$.getJSON( apiUrl + 'getBranches', function( data ) {
+	$.getJSON( config.apiUrl + 'getBranches', function( data ) {
 		var branches = [];
 
 		$.each( data, function( key, val ) {
