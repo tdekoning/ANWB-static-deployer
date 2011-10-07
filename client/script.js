@@ -1,1 +1,17 @@
-console.log('script.js ingeladen');
+(function( $ ) {
+
+	var config = {
+		apiUrl : 'api/'
+	}
+
+	$.getJSON( apiUrl + 'getBranches', function( data ) {
+		var branches = [];
+
+		$.each( data, function( key, val ) {
+			branches.push('<li id="' + key + '">' + val + '</li>');
+		});
+
+		$('#branchesTest').append('<ul>' + branches.join('') + '</ul>');
+	});
+
+})( jQuery );
