@@ -14,6 +14,10 @@ function getParameters( parsedUrl ) {
 	var keyValueParams = [];
 	var query = parsedUrl.query;
 
+	if ( query == undefined ) {
+		return null;
+	}
+
 	// Split de query in aparte key=value waardes.
 	query = query.split('&');
 
