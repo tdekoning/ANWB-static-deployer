@@ -6,6 +6,7 @@ http.createServer( function ( req, res ) {
 
 	if ( false ) {
 		// Als request begint met "api", moet een json object terug worden gegeven.
+		api.performRequest( req, res );
 	} else {
 		//Geen api-request, geef de file terug die wordt opgevraagd.
 		file.performRequest( req, res );
