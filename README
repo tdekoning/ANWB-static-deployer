@@ -2,6 +2,7 @@
 
 Features:
 - Settingfile (Json-file)
+- settings opslag nodig
 
 Todo:
 * Source code uitchecken uit SVN/GIT
@@ -20,7 +21,6 @@ Todo:
 - 1 persoon tegelijk deployen (statusfeed van deployment via comet naar iedereen)
 - Errors duidelijk aangeven
 - Automatische deployments (bijv. bij commit)
-   - settings opslag nodig
 - Kleurmarkering voor OTAP-straat (duidelijk aangeven waar gedeployed wordt)
 - Logging (Json-file) (Wie, wat, waar, wanneer)
 
