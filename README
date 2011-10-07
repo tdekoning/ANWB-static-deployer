@@ -1,7 +1,7 @@
 --++ Specs deployer ++--
 
 Features:
-* Geen
+- Settingfile (Json-file)
 
 Todo:
 * Source code uitchecken uit SVN/GIT
@@ -22,6 +22,5 @@ Todo:
 - Automatische deployments (bijv. bij commit)
    - settings opslag nodig
 - Kleurmarkering voor OTAP-straat (duidelijk aangeven waar gedeployed wordt)
-- Settingfile (Json-file)
 - Logging (Json-file) (Wie, wat, waar, wanneer)
 

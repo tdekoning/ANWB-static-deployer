@@ -18,7 +18,6 @@ exports.performRequest = function( req, res ) {
  */
 	if ( params.action === 'getBranches' ) {
 
-		console.log('getting branches...');
 		require('./commandlineWrapper').getBranches( res );
 
 	} else {
