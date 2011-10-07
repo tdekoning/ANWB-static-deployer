@@ -1,4 +1,6 @@
-var url = require('url');
+var url = require('url'),
+	settingsUtil = require('./settings'),
+	settings = settingsUtil.getSettings();
 
 exports.performRequest = function( request, response ) {
 	// req moet action als parameter hebben.
@@ -18,8 +20,21 @@ exports.performRequest = function( request, response ) {
  */
 	if ( params.action === 'getBranches' ) {
 
-		var getBranches = require('./api/getBranches.js');
-		getBranches.execute(request, response);
+		var getSvnDirs = require('./api/getSvnDirectories');
+
+		settings.aantalKeerBranchesOpgehaald++;
+		settingsUtil.setSettings( settings );
+
+		getSvnDirs.execute(request, response, settings.svnBranches);
+
+	} else if ( params.action === 'getTags' ) {
+
+		var getSvnDirs = require('./api/getSvnDirectories');
+
+		settings.aantalKeerTagsOpgehaald++;
+		settingsUtil.setSettings( settings );
+
+		getSvnDirs.execute(request, response, settings.svnTags);
 
 	} else {
 		console.log('snap je actie niet, JONGUH!');

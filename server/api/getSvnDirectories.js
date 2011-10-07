@@ -1,16 +1,14 @@
 var exec = require('child_process').exec,
-	settingsUtil = require('./../settings'),
-	settings = settingsUtil.getSettings(),
 	child;
 
-exports.execute = function( request, response ) {
+/*
+ * Haalt de subdirectories op van de opgegeven svnRepo directory.
+ */
+exports.execute = function( request, response, svnRepo ) {
 
-	console.log('getting branches...');
+	console.log('getting svn directories...');
 
-	settings.aantalKeerBranchesOpgehaald++;
-	settingsUtil.setSettings( settings );
-
-	child = exec('svn ls '+ settings.svnRepo, function ( error, stdout, stderr ) {
+	child = exec('svn ls '+ svnRepo, function ( error, stdout, stderr ) {
 		console.log('stdout: ' + stdout);
 		console.log('stderr: ' + stderr);
 		if ( error !== null ) {

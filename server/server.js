@@ -1,3 +1,6 @@
+/*
+ * Main js file, gebruik deze alleen om de server op te starten.
+ */
 var http = require('http');
 var api = require('./apiRequest.js');
 var file = require('./fileRequest.js');
