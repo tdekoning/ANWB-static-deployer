@@ -17,19 +17,7 @@ exports.performRequest = function( req, res ) {
 	if ( params.action === 'getBranches' ) {
 
 		console.log('getting branches...');
-
-		var util = require('util'),
-			exec = require('child_process').exec,
-			child;
-
-		child = exec('svn ls http://v8.googlecode.com/svn/branches/', function (error, stdout, stderr) {
-			console.log('stdout: ' + stdout);
-			console.log('stderr: ' + stderr);
-			if (error !== null) {
-				console.log('exec error: ' + error);
-			}
-			res.end(stdout, 'utf-8');
-		});
+		require('./commandlineWrapper').getBranches( res );
 
 	} else {
 		console.log('snap je actie niet, JONGUH!');
