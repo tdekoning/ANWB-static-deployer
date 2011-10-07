@@ -21,17 +21,13 @@ exports.performRequest = function( request, response ) {
 	if ( params.action === 'getBranches' ) {
 
 		var getSvnDirs = require('./api/getSvnDirectories');
-
 		settings.aantalKeerBranchesOpgehaald++;
-
 		getSvnDirs.execute(request, response, settings.svnBranches);
 
 	} else if ( params.action === 'getTags' ) {
 
 		var getSvnDirs = require('./api/getSvnDirectories');
-
 		settings.aantalKeerTagsOpgehaald++;
-
 		getSvnDirs.execute(request, response, settings.svnTags);
 
 	} else {
