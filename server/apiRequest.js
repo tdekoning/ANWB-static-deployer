@@ -1,8 +1,8 @@
 var url = require('url');
 
 exports.performRequest = function( req, res ) {
-	//req moet action als parameter hebben.
-	//Action mapped op api functie.
+	// req moet action als parameter hebben.
+	// Action mapped op api functie.
 	var parsedUrl = url.parse( req.url );
 	params = getParameters( parsedUrl );
 	console.log( 'params: ', params );
@@ -13,7 +13,9 @@ exports.performRequest = function( req, res ) {
 	}
 
 
-/* Moet nog VEEEEL netter opgezet worden. Maar POC werkt! */
+/*
+ * Moet nog VEEEEL netter opgezet worden. Maar POC werkt! 
+ */
 	if ( params.action === 'getBranches' ) {
 
 		console.log('getting branches...');

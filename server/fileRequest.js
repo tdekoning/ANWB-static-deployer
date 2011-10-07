@@ -5,8 +5,8 @@ var path = require('path');
  * Haal een bestand op aan de hand van de request.
  */
 exports.performRequest = function( request, response ) {
-	//req is het pad naar de file.
-	//Geef de file terug met de juiste content-type.
+	// req is het pad naar de file.
+	// Geef de file terug met de juiste content-type.
 	console.log('request starting...');
 
 	var filePath = '../client/.' + request.url;

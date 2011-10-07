@@ -10,5 +10,5 @@ exports.getBranches = function( res ) {
 		}
 		res.end(stdout, 'utf-8');
 	});
-	
+
 }
