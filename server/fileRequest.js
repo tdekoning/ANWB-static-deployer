@@ -7,18 +7,18 @@ var path = require('path');
 exports.performRequest = function( request, response ) {
 	// req is het pad naar de file.
 	// Geef de file terug met de juiste content-type.
-	console.log('request starting...');
 
 	var filePath = '../client/.' + request.url;
-	if (filePath == './')
+	if ( filePath == './' ) {
 		filePath = './index.html';
-	
+	}
+
 	var extname = path.extname( filePath );
 	var contentType = getContentType( extname );
 
 	path.exists(filePath, function(exists) {
 
-		if (exists) {
+		if ( exists ) {
 			fs.readFile(filePath, function(error, content) {
 				if (error) {
 					response.writeHead(500);

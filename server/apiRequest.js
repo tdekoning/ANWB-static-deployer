@@ -1,9 +1,9 @@
 var url = require('url');
 
-exports.performRequest = function( req, res ) {
+exports.performRequest = function( request, response ) {
 	// req moet action als parameter hebben.
 	// Action mapped op api functie.
-	var parsedUrl = url.parse( req.url );
+	var parsedUrl = url.parse( request.url );
 	params = getParameters( parsedUrl );
 	console.log( 'params: ', params );
 
@@ -18,10 +18,12 @@ exports.performRequest = function( req, res ) {
  */
 	if ( params.action === 'getBranches' ) {
 
-		require('./commandlineWrapper').getBranches( res );
+		var getBranches = require('./api/getBranches.js');
+		getBranches.execute(request, response);
 
 	} else {
 		console.log('snap je actie niet, JONGUH!');
+		response.end('not implemented');
 	}
 
 
@@ -50,4 +52,3 @@ function getParameters( parsedUrl ) {
 	}
 	return keyValueParams;
 }
-
