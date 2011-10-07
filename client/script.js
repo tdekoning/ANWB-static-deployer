@@ -4,7 +4,8 @@
 		apiUrl : 'api/'
 	}
 
-	$.getJSON( config.apiUrl + 'getBranches', function( data ) {
+	/*
+	$.getJSON( config.apiUrl + '?action=getBranches', function( data ) {
 		var branches = [];
 
 		$.each( data, function( key, val ) {
@@ -13,5 +14,8 @@
 
 		$('#branchesTest').append('<ul>' + branches.join('') + '</ul>');
 	});
+	*/
+	$('#branchesTest').append('<pre>');
+	$('#branchesTest pre').load( config.apiUrl + '?action=getBranches' );
 
 })( jQuery );
