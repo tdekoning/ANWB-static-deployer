@@ -23,7 +23,6 @@ exports.performRequest = function( request, response ) {
 		var getSvnDirs = require('./api/getSvnDirectories');
 
 		settings.aantalKeerBranchesOpgehaald++;
-		settingsUtil.setSettings( settings );
 
 		getSvnDirs.execute(request, response, settings.svnBranches);
 
@@ -32,7 +31,6 @@ exports.performRequest = function( request, response ) {
 		var getSvnDirs = require('./api/getSvnDirectories');
 
 		settings.aantalKeerTagsOpgehaald++;
-		settingsUtil.setSettings( settings );
 
 		getSvnDirs.execute(request, response, settings.svnTags);
 
@@ -41,6 +39,7 @@ exports.performRequest = function( request, response ) {
 		response.end('not implemented');
 	}
 
+	settingsUtil.setSettings( settings );
 
 
 }
