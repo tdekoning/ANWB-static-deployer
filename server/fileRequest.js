@@ -31,8 +31,8 @@ exports.performRequest = function( request, response ) {
 			});
 		}
 		else {
-			response.writeHead(404);
-			response.end();
+			response.writeHead(404, {'Content-Type': 'text/plain'});
+			response.end('You r doing it rong!');
 		}
 	});
 	
