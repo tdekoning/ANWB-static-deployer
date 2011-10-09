@@ -9,10 +9,18 @@
 		var branches = [];
 
 		$.each( data, function( key, value ) {
-			branches.push('<li>' + value + '</li>');
+			branches.push('<option>' + value + '</option>');
 		});
 
-		$('#branchesTest').append('<ul>' + branches.join('') + '</ul>');
+		$( "#branchesTest" ).append('<input id="branchesSearch"></input');
+		$('#branchesSearch').autocomplete({
+			source: data,
+			select: function( even, ui) {
+				$('#branchesSelect').val( ui.item.value );
+			}
+		});
+
+		$('#branchesTest').append('<select id="branchesSelect" size="10">' + branches.join('') + '</select>');
 	});
 
 	$.getJSON( config.apiUrl + '?action=getTags', function( data ) {
