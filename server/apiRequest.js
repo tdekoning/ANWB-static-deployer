@@ -30,6 +30,11 @@ exports.performRequest = function( request, response ) {
 		settings.aantalKeerTagsOpgehaald++;
 		getSvnDirs.execute(request, response, settings.svnTags);
 
+	} else if ( params.action === 'getServerVersie' ) {
+
+		var getServerVersie = require('./api/getServerVersie');
+		getServerVersie.execute( request, response );
+
 	} else {
 		console.log('snap je actie niet, JONGUH!');
 		response.end('not implemented');
