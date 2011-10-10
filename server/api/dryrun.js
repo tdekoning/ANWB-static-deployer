@@ -4,7 +4,10 @@
 exports.execute = function ( callback, svnDir, serverUrl ) {
 	
 	// TODO: Check code uit (in tmp dir)
-	// TODO: Voer staticjscsscompiler.jar uit.
+	// TODO: Maak dynamisch
+	var srcDir = '/tmp/static-trunk';
+	var targetDir = '/tmp/static-trunk-compiled';
+	require('../functions/jscssCompile.js').execute(srcDir, targetDir);
 	// TODO: Check de verschillen met de gegeven server.
 
 }
