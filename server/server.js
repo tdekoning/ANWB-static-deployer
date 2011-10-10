@@ -1,9 +1,12 @@
 /*
  * Main js file, gebruik deze alleen om de server op te starten.
  */
-var http = require('http');
-var api = require('./apiRequest.js');
-var file = require('./fileRequest.js');
+var http = require('http'),
+	api = require('./apiRequest.js'),
+	file = require('./fileRequest.js'),
+	settings = require('./settings.js').getSettings();
+
+init();
 
 http.createServer( function ( req, res ) {
 
@@ -18,3 +21,8 @@ http.createServer( function ( req, res ) {
 }).listen(1337, "127.0.0.1");
 
 console.log('Server running at http://127.0.0.1:1337/');
+
+function init() {
+	// Check de trunk uit naar een tmp directory.
+	require('./functions/checkout.js').execute(settings.svnTrunk, settings.svnTrunkTargetDir);
+}
