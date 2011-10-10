@@ -25,4 +25,5 @@ console.log('Server running at http://127.0.0.1:1337/');
 function init() {
 	// Check de trunk uit naar een tmp directory.
 	require('./functions/checkout.js').execute(settings.svnTrunk, settings.svnTrunkTargetDir);
+	require('./functions/update.js').execute(settings.svnTrunkTargetDir);
 }
