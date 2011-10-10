@@ -1,9 +1,9 @@
 /*
  * Voer het deployen van de gegeven svnDir naar de gegeven serverUrl uit.
  */
-exports.execute = function ( callback, svnDir, serverUrl ) {
+exports.execute = function ( svnDir, serverUrl, callback ) {
 	var srcDir = '/tmp/static-trunk',
-	var targetDir = '/tmp/static-trunk-compiled';
+		targetDir = '/tmp/static-trunk-compiled';
 
 	require('../functions/checkout.js').execute(svnDir, srcDir, function() {
 

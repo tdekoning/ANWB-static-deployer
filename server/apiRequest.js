@@ -34,11 +34,11 @@ exports.performRequest = function( request, response ) {
 
 	} else if ( params.action === 'dryrun' ) {
 
-		require('./api/dryrun').execute(callback, 'https://subversion.anwb.loc/svn/front-end/static/trunk', '');
+		require('./api/dryrun').execute('https://subversion.anwb.loc/svn/front-end/static/trunk', '', callback);
 
 	} else if ( params.action === 'deploy' ) {
 
-		require('./api/deploy').execute(callback, 'https://subversion.anwb.loc/svn/front-end/static/trunk', '');
+		require('./api/deploy').execute('https://subversion.anwb.loc/svn/front-end/static/trunk', '', callback);
 
 	} else {
 		console.log('snap je actie niet, JONGUH!');
