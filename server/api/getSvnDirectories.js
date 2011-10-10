@@ -14,7 +14,7 @@ exports.execute = function( callback, svnRepo ) {
 		if ( error !== null ) {
 			console.log('exec error: ' + error);
 		}
-		myArray = stdout.split('\r\n');
+		myArray = stdout.split('\n');
 
 		callback( JSON.stringify(myArray) );
 	});
