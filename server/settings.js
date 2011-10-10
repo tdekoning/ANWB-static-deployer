@@ -6,7 +6,7 @@ var fs = require('fs');
 exports.getSettings = function() {
 	var fileContents = fs.readFileSync('./config.json','utf8');
 
-	return JSON.parse(fileContents);;
+	return JSON.parse(fileContents);
 }
 
 /*
