@@ -20,13 +20,11 @@ exports.performRequest = function( request, response ) {
 	if ( params.action === 'getBranches' ) {
 
 		var getSvnDirs = require('./api/getSvnDirectories');
-		settings.aantalKeerBranchesOpgehaald++;
 		getSvnDirs.execute( callback, settings.svnBranches);
 
 	} else if ( params.action === 'getTags' ) {
 
 		var getSvnDirs = require('./api/getSvnDirectories');
-		settings.aantalKeerTagsOpgehaald++;
 		getSvnDirs.execute( callback, settings.svnTags  );
 
 	} else if ( params.action === 'getServerVersie' ) {
@@ -46,8 +44,6 @@ exports.performRequest = function( request, response ) {
 		console.log('snap je actie niet, JONGUH!');
 		response.end('not implemented');
 	}
-
-	settingsUtil.setSettings( settings );
 
 	/*
 	 * Callback functie, schrijft data naar de browser.
