@@ -14,7 +14,6 @@ exports.performRequest = function( request, response ) {
 		return;
 	}
 
-
 /*
  * Moet nog VEEEEL netter opgezet worden. Maar POC werkt! 
  */
@@ -22,18 +21,18 @@ exports.performRequest = function( request, response ) {
 
 		var getSvnDirs = require('./api/getSvnDirectories');
 		settings.aantalKeerBranchesOpgehaald++;
-		getSvnDirs.execute(request, response, settings.svnBranches);
+		getSvnDirs.execute( callback, settings.svnBranches);
 
 	} else if ( params.action === 'getTags' ) {
 
 		var getSvnDirs = require('./api/getSvnDirectories');
 		settings.aantalKeerTagsOpgehaald++;
-		getSvnDirs.execute(request, response, settings.svnTags);
+		getSvnDirs.execute( callback, settings.svnTags);
 
 	} else if ( params.action === 'getServerVersie' ) {
 
 		var getServerVersie = require('./api/getServerVersie');
-		getServerVersie.execute( request, response );
+		getServerVersie.execute( callback );
 
 	} else {
 		console.log('snap je actie niet, JONGUH!');
@@ -41,6 +40,13 @@ exports.performRequest = function( request, response ) {
 	}
 
 	settingsUtil.setSettings( settings );
+
+	/*
+	 * Callback functie, schrijft data naar de browser.
+	 */
+	function callback( str ) {
+		response.end(str);
+	}
 
 
 }

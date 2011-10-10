@@ -4,7 +4,7 @@ var exec = require('child_process').exec,
 /*
  * Haalt de subdirectories op van de opgegeven svnRepo directory.
  */
-exports.execute = function( request, response, svnRepo ) {
+exports.execute = function( callback, svnRepo ) {
 
 	console.log('getting svn directories...');
 
@@ -15,6 +15,7 @@ exports.execute = function( request, response, svnRepo ) {
 			console.log('exec error: ' + error);
 		}
 		myArray = stdout.split('\r\n');
-		response.end( JSON.stringify(myArray) ); // eindigen van de response zou niet de verantwoordelijkheid van deze functie moeten zijn
+
+		callback( JSON.stringify(myArray) );
 	});
 }
