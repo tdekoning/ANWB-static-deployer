@@ -16,7 +16,7 @@ exports.execute = function( callback ) {
 	http.get(options, function(res) {
 		res.on('data', function ( chunk ) {
 			console.log('BODY: ' + chunk);
-			callback.end( chunk );
+			callback( chunk );
 		});
 	}).on('error', function(e) {
 		console.log("Got error: " + e.message);
