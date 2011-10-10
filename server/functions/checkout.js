@@ -5,5 +5,7 @@ var exec = require('child_process').exec,
  */
 exports.execute = function( svnDir, targetDir, callback ) {
 	exec('svn co ' + svnDir + ' ' + targetDir + ' --username ' +settings.svnUser + ' --password ' + settings.svnPasswd);
-	callback();
+	if ( callback != undefined) {
+	 callback();
+	}
 }
