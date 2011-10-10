@@ -27,12 +27,20 @@ exports.performRequest = function( request, response ) {
 
 		var getSvnDirs = require('./api/getSvnDirectories');
 		settings.aantalKeerTagsOpgehaald++;
-		getSvnDirs.execute( callback, settings.svnTags);
+		getSvnDirs.execute( callback, settings.svnTags  );
 
 	} else if ( params.action === 'getServerVersie' ) {
 
 		var getServerVersie = require('./api/getServerVersie');
 		getServerVersie.execute( callback );
+
+	} else if ( params.action === 'dryrun' ) {
+
+		require('./api/dryrun').execute(callback, '', '');
+
+	} else if ( params.action === 'deploy' ) {
+
+		require('./api/deploy').execute(callback, '', '');
 
 	} else {
 		console.log('snap je actie niet, JONGUH!');
