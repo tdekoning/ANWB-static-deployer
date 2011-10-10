@@ -7,11 +7,13 @@ var path = require('path');
 exports.performRequest = function( request, response ) {
 	// req is het pad naar de file.
 	// Geef de file terug met de juiste content-type.
-
-	var filePath = '../client/.' + request.url;
-	if ( filePath == './' ) {
-		filePath = './index.html';
+	var filePath = '';
+	if ( request.url == '/' ) {
+		filePath = '../client/index.html';
+	} else {
+		filePath = '../client/.' + request.url;
 	}
+
 
 	var extname = path.extname( filePath );
 	var contentType = getContentType( extname );
