@@ -2,7 +2,7 @@
 	"svnBranches": "http://v8.googlecode.com/svn/branches/",
 	"svnTags": "http://v8.googlecode.com/svn/tags/",
 	"svnTrunk": "https://subversion.anwb.loc/svn/front-end/static/trunk",
-	"svnTrunkTargetDir": "/tmp/static-trunk/",
+	"svnWorkingCopy": "/tmp/static",
 	"svnUser": undefined,
 	"svnPasswd": undefined
 }
